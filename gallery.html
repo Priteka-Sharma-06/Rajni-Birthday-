@@ -1,0 +1,184 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Policy Gallery</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+    }
+
+    header {
+        text-align: center;
+        padding: 20px;
+        background: #333;
+        color: white;
+        font-size: 28px;
+        letter-spacing: 2px;
+    }
+
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .card {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+    }
+
+    .card img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.3s ease;
+    }
+
+    .card:hover img {
+        transform: scale(1.05);
+    }
+
+    .caption {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        color: white;
+        padding: 10px;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    /* Lightbox */
+    .lightbox {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.8);
+        justify-content: center;
+        align-items: center;
+    }
+
+    .lightbox img {
+        max-width: 90%;
+        max-height: 80%;
+        border-radius: 10px;
+    }
+
+    .lightbox span {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        font-size: 40px;
+        color: white;
+        cursor: pointer;
+    }
+
+</style>
+</head>
+<body>
+
+<header>Our Memories</header>
+
+<div class="gallery">
+
+    <div class="card">
+        <img src="images/IMG-20260224-WA0005~2.jpg" onclick="openLightbox(this.src)">
+        <div class="caption">A day unexpectedly became<b> ONE DAY</b>✨.</div>
+    </div>
+
+    <div class="card">
+        <img src="images/IMG-20251206-WA0045(1).jpg" onclick="openLightbox(this.src)">
+        <div class="caption">Hamare kuch chulbule din 🤭.</div>
+    </div>
+
+    <div class="card">
+        <img src="images/IMG-20251206-WA0040(2).jpg" onclick="openLightbox(this.src)">
+        <div class="caption">Patnitop GUSSIP 📍🤓.</div>
+    </div>
+
+    <div class="card">
+        <img src="images/IMG-20260224-WA0038~2.jpg" onclick="openLightbox(this.src)">
+        <div class="caption">The first frame captured us together.</div>
+    </div>
+
+    <div class="card">
+        <img src="images/IMG-20251206-WA0031(2).jpg" onclick="openLightbox(this.src)">
+        <div class="caption">Rajo's phone hamre photos 🙈.</div>
+    </div>
+
+    <div class="card">
+        <img src="images/IMG-20251206-WA0033(1).jpg" onclick="openLightbox(this.src)">
+        <div class="caption">Not perfect angel,Not perfect resolution But a memory lives in 💕.</div>
+    </div>
+ <div class="card">
+        <img src="images/IMG-20251206-WA0039(2).jpg" onclick="openLightbox(this.src)">
+        <div class="caption">The day we taught the bachaa party😎.</div>
+ </div>
+    <div class="card">
+        <img src="images/IMG-20251206-WA0032(1).jpg" onclick="openLightbox(this.src)">
+        <div class="caption">Kam kisi aur ka nam kisi aur kaa 😂👻.</div>
+    </div>
+
+  <div class="card">
+        <img src="images/IMG-20260224-WA0037~2.jpg" onclick="openLightbox(this.src)">
+        <div class="caption">Award Day.</div>
+  </div>
+  <div class="card">
+        <img src="images/IMG-20251206-WA0042~2.jpg" onclick="openLightbox(this.src)">
+        <div class="caption">21st June 2023🕊️.</div>
+  </div>
+  <div class="card">
+        <img src="images/IMG-20251129-WA0003(2).jpg" onclick="openLightbox(this.src)">
+        <div class="caption">Meri Pyari chori 😘.</div>
+  </div>
+  <div class="card">
+        <img src="images/IMG-20251209-WA0001.jpg" onclick="openLightbox(this.src)">
+        <div class="caption">Gorgeous Smile 🥰.</div>
+     </div>
+  <div class="card">
+        <img src="images/IMG-20260223-WA0054.jpg" onclick="openLightbox(this.src)">
+        <div class="caption">Complian Day 😅.</div>
+  </div>
+  <div class="card">
+        <img src="images/IMG-20260224-WA0022.jpg" onclick="openLightbox(this.src)">
+        <div class="caption">The beautiful moments we steal 😌.</div>
+  </div>
+  <div class="card">
+        <img src="images/IMG-20260224-WA0000.jpg" onclick="openLightbox(this.src)">
+        <div class="caption">US 💙.</div>
+     </div>
+   
+
+</div>
+
+
+<div class="lightbox" id="lightbox">
+    <span onclick="closeLightbox()">&times;</span>
+    <img id="lightbox-img">
+</div>
+
+<script>
+    function openLightbox(src) {
+        document.getElementById("lightbox").style.display = "flex";
+        document.getElementById("lightbox-img").src = src;
+    }
+
+    function closeLightbox() {
+        document.getElementById("lightbox").style.display = "none";
+    }
+</script>
+
+</body>
+</html>
