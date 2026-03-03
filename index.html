@@ -1,0 +1,222 @@
+ <!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>For You</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: serif;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      height: 100vh;
+      background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+      overflow: hidden;
+      position: relative;
+    }
+    #btn{
+  padding:22px 35px;
+  margin:40px 0px 35px 0px;
+  border:none;
+  border-radius:30px;
+  background: linear-gradient(45deg,#6c5ce7,#fd79a8);
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+  box-shadow:0 8px 20px rgba(0,0,0,0.4);
+  transition:0.3s ease;
+  animation:flow 1s ease infinite;
+}
+
+#btn:hover{
+  transform:scale(1.05);
+  box-shadow:0 12px 25px rgba(0,0,0,0.3);
+}
+
+     
+        #next{
+      background: hotpink;
+      padding: 12px 20px;
+      font-size: 1.3rem;
+      border: none;
+      border-radius: 25px;
+      color: white;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      z-index: 2;
+      margin-top:10px;
+      opacity:0;
+    }
+
+    #text {
+      color: white;
+      font-size:30px;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      text-align: center;
+      z-index: 2;
+      position: relative;
+    }
+
+    
+
+    .star {
+      position: absolute;
+      height: 5.5px;
+      width: 5.5px;
+      background: pink;
+      border-radius: 50%;
+      opacity: 0.3;
+      animation: twinkle 3s infinite;
+      z-index: 1;
+    }
+
+    @keyframes twinkle {
+      0% {
+        opacity: 0.3;
+      }
+
+      50% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0.3;
+      }
+    }
+
+    /* Confetti */
+    .confetti {
+      position: absolute;
+      width: 6px;
+      height: 8px;
+      background:pink;
+      animation: fall linear infinite;
+      z-index: 1;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-100vh);
+      }
+
+      100% {
+        transform: translateY(110vh);
+      }
+    }
+    @media(max-width:650px){
+      #text{
+        font-size:15px;
+      }
+      .star{
+        width:2px;
+        height:2px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="text"></div>
+  <button id="btn">Start Trailer</button>
+<button id="next">aage chale👻</button>
+  <script>
+    let scene = [
+      { text: "In a world...", delay: 2000 },
+      { text: "Where peace once existed...", delay: 2500 },
+      { text: "One girl changed everything.", delay: 3000 },
+      { text: "Having a gental smile...", delay: 3000 },
+      { text: "She cares deeply...", delay: 3500 },
+      { text: "And loves purely.", delay: 3500 },
+      { text: "My beautiful Rajo🤗", delay: 5000 },
+      { text: "An Angel of peace🌸", delay: 4000 },
+      { text: "RAJNI – The HEART Queen Returns (2026 Edition)", delay: 4000 },
+      { text: "Happy Birthday 💖", delay:5000 }
+    ];
+
+    let i = 0;
+    const btn = document.getElementById("btn");
+    const next= document.getElementById("next");
+    const text = document.getElementById("text");
+
+    btn.addEventListener("click", start);
+next.addEventListener("click",()=>{
+  window.location.href="message.html"; }
+);
+    function start() {
+      btn.style.display = "none";
+      showScene();
+    }
+
+    function showScene() {
+      if (i >= scene.length){
+        next.style.opacity="1";
+       return;
+      }
+
+      text.style.opacity = 0; // fade out
+
+      setTimeout(() => {
+        text.innerHTML = scene[i].text;
+
+        if (scene[i].text ==="My beautiful Rajo🤗") {
+          text.classList.add("big");
+          starbg();
+        } else {
+          text.classList.remove("big");
+        }
+
+        // Confetti activates only on "Happy Birthday 💖"
+        if (scene[i].text === "Happy Birthday 💖") {
+          startConfetti();
+        }
+
+        text.style.opacity = 1; // fade in
+
+        setTimeout(() => {
+          text.style.opacity = 0; // fade out
+          i++;
+          setTimeout(showScene, 1000);
+        }, scene[i].delay);
+
+      }, 500);
+    }
+
+    function starbg() {
+      for (let i = 0; i < 50; i++) {
+        const star = document.createElement("div");
+        star.classList.add("star");
+        star.style.left = Math.random() * 100 + "vw";
+        star.style.top = Math.random() * 100 + "vh";
+        star.style.animationDuration = (Math.random() * 2 + 1) + "s";
+        document.body.appendChild(star);
+      }
+    }
+
+    function startConfetti() {
+      for (let i = 0; i < 50; i++) {
+        const confetti = document.createElement("div");
+        confetti.classList.add("confetti");
+        confetti.style.left = Math.random() * 100 + "vw";
+        confetti.style.setProperty("--rand", Math.random());
+        confetti.style.animationDuration = (Math.random() * 3 + 2) + "s";
+        document.body.appendChild(confetti);
+
+        // Remove confetti after it falls
+        setTimeout(() => {
+          confetti.remove();
+        }, 5000);
+      }
+    }
+  </script>
+</body>
+  </html>
