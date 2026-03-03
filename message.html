@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Message for YOU</title>
+  <style>
+  *{
+    margin:0;
+    padding:0;
+  }
+  body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#ff9a9e,#fad0c4,#fbc2eb,#a6c1ee);
+    display: flex;
+    flex-direction:column ;
+  }
+  .grid{
+    display:flex;
+    flex-wrap:nowrap;
+    flex-direction: column;
+    height:100%;
+    gap:10px;
+    
+    
+  }
+    .img{
+      width:60vw;
+      max-width:600px;
+    min-height:120px;
+      padding:30px;
+      margin:2.5rem;
+      position: relative;
+      pointer:grab;
+      background: rgba(255,255,255,0.85);
+      border-radius:20px;
+      font-family:popine;
+      backdrop-filter: blur(10px);
+      box-shadow:0 15px 30px rgba(0,0,0,0.15);
+      position: relative;
+    transition:0.4s ease;
+    }
+    .img:hover{
+    transform: scale(1.09) rotate(0deg);
+    box-shadow:0 20px 40px rgba(0,0,0,0.35);
+  }
+     
+    .dot{
+      width:18px;
+      height:18px;
+      background:radial-gradient(circle at 30% 30%, #ff4e50, #8b0000);;
+      border-radius: 50%;
+      position: absolute;
+      left:50%;
+    box-shadow:0 4px 8px rgba(0,0,0,0.3);
+    }
+    #box1,#box3,#box5,#box7{
+ align-self:end;
+ transform:rotate(5deg);
+    }
+   #box2,#box4,#box6{
+ align-self:start;
+ transform:rotate(-5deg);
+    }
+    p{
+      margin-top:1em;
+      font-size:35px;
+    }
+        /* Button Style */
+button{
+  padding:22px 35px;
+  margin:40px 0px 35px 0px;
+  border:none;
+  border-radius:30px;
+  background: linear-gradient(45deg,#6c5ce7,#fd79a8);
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+  box-shadow:0 8px 20px rgba(0,0,0,0.2);
+  transition:0.3s ease;
+  animation:flow 1s ease infinite;
+}
+
+button:hover{
+  transform:scale(1.05);
+  box-shadow:0 12px 25px rgba(0,0,0,0.3);
+}
+  @media(max-width:650px)
+  {
+    .dot{
+      height:0.5em;
+      width:0.5em;
+    }
+    p{
+      font-size:15px;
+    }
+  }
+  </style>
+</head>
+
+<body>
+  <div class="grid">
+    <div id="box1">
+ 
+         <div class="img">
+           <div class="dot"></div>
+           <p>
+             
+             <b>📜 Official Charges Against Rajni</b>
+             <ul><br>
+<li>Fake Promises 🙄</li>
+<li>Ghosting suddenly 🤓</li>
+
+<li>Don't receive calls blaming classes</li>
+          </ul> </p>
+         </div>
+     </div>
+     <div id="box2">
+        <div class="img">
+           <div class="dot"></div>
+                      <p>
+           <ul>
+             <li>
+               Species: Bestfriendus Dramaticus</li>
+<li>Habitat: Wherever love & care exists</li>
+<li>Strength: Handling herself firmly in every situation</li>
+<li>Weakness: Emotions/Overthinking/Hurting</li>
+           </ul>
+           </p>
+
+        </div>
+     </div>
+     <div id="box3">
+        <div class="img">
+           <div class="dot"></div>
+           <p>
+             <ul>
+               <li>
+                 Drama Level: 10%😅</li>
+<li>Loyalty Index: 999%😘</li>
+<li>Strong:Infinite💕</li>
+<li>Sensitiveness:just need a hug😔</li>
+
+<li>Main Character Syndrome: Permanent👻</li>
+             </ul>
+           </p>
+        </div>
+     </div>
+     <div id="box4">
+        <div class="img">
+           <div class="dot"></div>
+           <p>
+             I love tease you the most because you’re the closest.<br>
+I roast you loudly but care for you silently.<br><br>
+You’re not just my best friend.<br>
+<b>You’re someone I trust without thinking twice.</b>
+           </p>
+
+        </div>
+     </div>
+      <div id="box5">
+        <div class="img">
+           <div class="dot"></div>
+           <p>
+             The Queen of Pure heart Turns a Year More Iconic✨
+           </p>
+        </div>
+     </div>  
+       <div id="box6">
+        <div class="img">
+           <div class="dot"></div>
+                      <p>You’re not getting older… just upgrading your Iconic version 2.0.<br><b> Warning: still unstable.</b></p>
+        </div>
+     </div>   
+           <div id="box7">
+        <div class="img">
+           <div class="dot"></div>
+           <p>
+              You’re loud.<br>
+You’re Beautiful.<br>
+You’re impossible.<br>
+You're strong with deligate heart<br>
+you’re loyal, strong, and irreplaceable.
+<br><br>
+<strong>Happy Birthday, RAJNI.
+</strong><br>Stay my favorite idiot forever.🤗
+           </p>
+        </div>
+     </div>  
+</div>
+<button id="btn">Next</button>
+<br><br>
+
+  <script>
+    let btn=document.getElementById("btn");
+    btn.addEventListener("click",()=>{
+    window.location.href="letter.html";
+    });
+  </script>
+
+</body>
+
+</html>
